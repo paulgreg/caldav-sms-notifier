@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "moment": "^2.8.4",
-    "node-caldav": "0.0.1"
+    "node-caldav": "git://github.com/paulgreg/node-caldav.git",
+    "request": "^2.51.0"
   }
 }

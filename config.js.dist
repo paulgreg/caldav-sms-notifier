@@ -1,6 +1,9 @@
 module.exports = {
+    checkIntervalInMinutes: 15,
     baseurl: 'https://hostname',
     baikal: 'path-to-your-calendar',
     username: 'username',
-    password: 'password'
+    password: 'password',
+    smsUsername: 'mobile.free.fr-sms-username',
+    smsPassword: 'mobile.free.fr-sms-password'
 }
