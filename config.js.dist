@@ -1,0 +1,6 @@
+module.exports = {
+    baseurl: 'https://hostname',
+    baikal: 'path-to-your-calendar',
+    username: 'username',
+    password: 'password'
+}

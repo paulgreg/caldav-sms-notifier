@@ -1,0 +1,15 @@
+{
+  "name": "caldav-sms-notifier",
+  "version": "0.0.0",
+  "description": "A calendar SMS notifier, connecting to a caldav server and using Free SMS notification",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Grégory Paul",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.8.4",
+    "node-caldav": "0.0.1"
+  }
+}
