@@ -5,6 +5,7 @@ var moment = require("moment");
 var debug = false;
 
 caldav.getList(config.baseurl + config.baikal, config.username, config.password, function(calendars) {
+
     calendars.map(function(calendar) {
 
         if (calendar.displayName !== '') {
@@ -22,6 +23,11 @@ caldav.getList(config.baseurl + config.baikal, config.username, config.password,
                             if (debug) { console.log(key, start); }
                             d = moment(start, ['YYYYMMDD', 'YYYYMMDDTHHmmss'] );
                         }
+                    }
+
+                    var now = moment();
+                    if (d.date() !== now.date() || d.hour() !== now.hour()) {
+                        return; // Stop if not same day or same hour...
                     }
 
                     if (debug) { console.log(event); }
@@ -54,6 +60,5 @@ caldav.getList(config.baseurl + config.baikal, config.username, config.password,
             });
         }
     });
-
 });
 
