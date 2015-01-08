@@ -2,7 +2,7 @@ var config = require("./config.js");
 var caldav = require("node-caldav");
 var moment = require("moment");
 
-var debug = false;
+var debug = true;
 
 caldav.getList(config.baseurl + config.baikal, config.username, config.password, function(calendars) {
 
@@ -10,7 +10,7 @@ caldav.getList(config.baseurl + config.baikal, config.username, config.password,
 
         if (calendar.displayName !== '') {
 
-            var from = moment().format('YYYYMMDDTHHmmss');
+            var from = moment().format('YYYYMMDDTHH0000');
             var end  = moment().minutes(config.checkIntervalInMinutes).format('YYYYMMDDTHHmmss');
 
             caldav.getEvents(config.baseurl + calendar.href, config.username, config.password, from, end, function(events) {
