@@ -26,7 +26,7 @@ caldav.getList(config.baseurl + config.baikal, config.username, config.password,
                     }
 
                     var now = moment();
-                    if (d.date() !== now.date()) {
+                    if (d.date() !== now.date() || d.hour() !== now.hour() ) {
                         if (debug) { console.log('stop', d.date(), now.date(), event.SUMMARY); }
                         return; // Stop if not same day or same hour...
                     }
