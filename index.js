@@ -10,8 +10,10 @@ caldav.getList(config.baseurl + config.baikal, config.username, config.password,
 
         if (calendar.displayName !== '') {
 
-            var from = moment().format('YYYYMMDDTHH0000');
+            var from = moment().format('YYYYMMDDTHHmmss');
             var end  = moment().minutes(config.checkIntervalInMinutes).format('YYYYMMDDTHHmmss');
+
+            console.log('requesting', calendar.displayName, 'from', from, 'to', end);
 
             caldav.getEvents(config.baseurl + calendar.href, config.username, config.password, from, end, function(events) {
 
@@ -26,9 +28,9 @@ caldav.getList(config.baseurl + config.baikal, config.username, config.password,
                     }
 
                     var now = moment();
-                    if (d.date() !== now.date() || d.hour() !== now.hour() ) {
+                    if (d.date() !== now.date()) {
                         if (debug) { console.log('stop', d.date(), now.date(), event.SUMMARY); }
-                        return; // Stop if not same day or same hour...
+                        return; // Stop if not same day...
                     }
 
                     if (debug) { console.log(event); }
